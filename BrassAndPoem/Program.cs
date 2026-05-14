@@ -100,7 +100,7 @@ void DeleteProduct(List<Product> products, List<ProductType> productTypes)
 
 void AddProduct(List<Product> products, List<ProductType> productTypes)
 {
-        Console.Write("Enter the name of the new product: ");
+    Console.Write("Enter the name of the new product: ");
     string name = Console.ReadLine();
  
     Console.Write("Enter the price of the new product: ");
@@ -128,7 +128,7 @@ void AddProduct(List<Product> products, List<ProductType> productTypes)
 
 void UpdateProduct(List<Product> products, List<ProductType> productTypes)
 {
-        DisplayAllProducts(products, productTypes);
+    DisplayAllProducts(products, productTypes);
     Console.Write("Enter the number of the product to update: ");
     string input = Console.ReadLine();
  
