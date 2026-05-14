@@ -74,7 +74,7 @@ void DisplayAllProducts(List<Product> products, List<ProductType> productTypes)
     for (int i = 0; i < products.Count; i++)
     {
         Product p = products[i];
-        ProductType type = productTypes.FirstOrDefault(pt => pt.Id == p.ProductTypeId);
+        ProductType type = productTypes.Find(pt => pt.Id == p.ProductTypeId);
         string typeTitle = type != null ? type.Title : "Unknown";
         Console.WriteLine($"{i + 1}. {p.Name} ({typeTitle}) - ${p.Price}");
     }
