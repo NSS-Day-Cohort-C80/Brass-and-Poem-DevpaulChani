@@ -4,11 +4,11 @@
 
 List<Product> products = new List<Product>
 {
-    new Product { Name = "brass1", Price = 150.99M,   ProductTypeId = 1 },
-    new Product { Name = "brass2", Price = 246.99M,   ProductTypeId = 1 },
-    new Product { Name = "brass3", Price = 1250.99M,  ProductTypeId = 1 },
-    new Product { Name = "poem1", Price = 12350.99M, ProductTypeId = 2 },
-    new Product { Name = "poem2", Price = 15650.99M, ProductTypeId = 2 }
+    new Product {Name = "Trumpet", Price = 150.99M, ProductTypeId = 1},
+    new Product {Name = "Trombone", Price = 246.99M, ProductTypeId = 1},
+    new Product {Name = "Tuba", Price = 1250.99M, ProductTypeId = 1},
+    new Product {Name = "Ozymandias", Price = 12350.99M, ProductTypeId = 2},
+    new Product {Name = "Leaves of Grass", Price = 15650.99M, ProductTypeId = 2}
 };
 
 //create a "productTypes" variable here with a List of ProductTypes, and add "Brass" and "Poem" types to the List.
@@ -84,38 +84,29 @@ void DeleteProduct(List<Product> products, List<ProductType> productTypes)
 {
     DisplayAllProducts(products, productTypes);
     Console.Write("Enter the number of the product to delete: ");
-    string input = Console.ReadLine();
- 
-    if (int.TryParse(input, out int number) && number >= 1 && number <= products.Count)
-    {
-        Product toRemove = products[number - 1];
-        products.Remove(toRemove);
-        Console.WriteLine($"{toRemove.Name} has been deleted.");
-    }
-    else
-    {
-        Console.WriteLine("Invalid selection.");
-    }
+    int number = int.Parse(Console.ReadLine());
+
+    Product toRemove = products[number - 1];
+    products.Remove(toRemove);
+    Console.WriteLine($"{toRemove.Name} has been deleted.");
 }
 
 void AddProduct(List<Product> products, List<ProductType> productTypes)
 {
-        Console.Write("Enter the name of the new product: ");
+    Console.Write("Enter the name of the new product: ");
     string name = Console.ReadLine();
- 
+
     Console.Write("Enter the price of the new product: ");
-    string priceInput = Console.ReadLine();
-    decimal.TryParse(priceInput, out decimal price);
- 
+    decimal price = decimal.Parse(Console.ReadLine());
+
     Console.WriteLine("Choose a product type:");
     foreach (ProductType pt in productTypes)
     {
         Console.WriteLine($"{pt.Id}. {pt.Title}");
     }
     Console.Write("Enter the product type id: ");
-    string typeInput = Console.ReadLine();
-    int.TryParse(typeInput, out int typeId);
- 
+    int typeId = int.Parse(Console.ReadLine());
+
     Product newProduct = new Product
     {
         Name = name,
@@ -128,32 +119,26 @@ void AddProduct(List<Product> products, List<ProductType> productTypes)
 
 void UpdateProduct(List<Product> products, List<ProductType> productTypes)
 {
-        DisplayAllProducts(products, productTypes);
+    DisplayAllProducts(products, productTypes);
     Console.Write("Enter the number of the product to update: ");
-    string input = Console.ReadLine();
- 
-    if (!int.TryParse(input, out int number) || number < 1 || number > products.Count)
-    {
-        Console.WriteLine("Invalid selection.");
-        return;
-    }
- 
+    int number = int.Parse(Console.ReadLine());
+
     Product product = products[number - 1];
- 
+
     Console.Write($"Enter a new name (press enter to keep \"{product.Name}\"): ");
     string newName = Console.ReadLine();
     if (!string.IsNullOrWhiteSpace(newName))
     {
         product.Name = newName;
     }
- 
+
     Console.Write($"Enter a new price (press enter to keep {product.Price}): ");
     string newPriceInput = Console.ReadLine();
-    if (!string.IsNullOrWhiteSpace(newPriceInput) && decimal.TryParse(newPriceInput, out decimal newPrice))
+    if (!string.IsNullOrWhiteSpace(newPriceInput))
     {
-        product.Price = newPrice;
+        product.Price = decimal.Parse(newPriceInput);
     }
- 
+
     Console.WriteLine("Available product types:");
     foreach (ProductType pt in productTypes)
     {
@@ -161,11 +146,11 @@ void UpdateProduct(List<Product> products, List<ProductType> productTypes)
     }
     Console.Write($"Enter a new product type id (press enter to keep {product.ProductTypeId}): ");
     string newTypeInput = Console.ReadLine();
-    if (!string.IsNullOrWhiteSpace(newTypeInput) && int.TryParse(newTypeInput, out int newTypeId))
+    if (!string.IsNullOrWhiteSpace(newTypeInput))
     {
-        product.ProductTypeId = newTypeId;
+        product.ProductTypeId = int.Parse(newTypeInput);
     }
- 
+
     Console.WriteLine($"Product updated.");
 }
 
