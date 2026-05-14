@@ -4,11 +4,11 @@
 
 List<Product> products = new List<Product>
 {
-    new Product { Name = "brass1", Price = 150.99M,   ProductTypeId = 1 },
-    new Product { Name = "brass2", Price = 246.99M,   ProductTypeId = 1 },
-    new Product { Name = "brass3", Price = 1250.99M,  ProductTypeId = 1 },
-    new Product { Name = "poem1", Price = 12350.99M, ProductTypeId = 2 },
-    new Product { Name = "poem2", Price = 15650.99M, ProductTypeId = 2 }
+    new Product {Name = "Trumpet", Price = 150.99M, ProductTypeId = 1},
+    new Product {Name = "Trombone", Price = 246.99M, ProductTypeId = 1},
+    new Product {Name = "Tuba", Price = 1250.99M, ProductTypeId = 1},
+    new Product {Name = "Ozymandias", Price = 12350.99M, ProductTypeId = 2},
+    new Product {Name = "Leaves of Grass", Price = 15650.99M, ProductTypeId = 2}
 };
 
 //create a "productTypes" variable here with a List of ProductTypes, and add "Brass" and "Poem" types to the List.
