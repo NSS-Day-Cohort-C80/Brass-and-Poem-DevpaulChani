@@ -74,7 +74,7 @@ void DisplayAllProducts(List<Product> products, List<ProductType> productTypes)
     for (int i = 0; i < products.Count; i++)
     {
         Product p = products[i];
-        ProductType type = productTypes.Find(pt => pt.Id == p.ProductTypeId);
+        ProductType type = productTypes.Find(productType => productType.Id == p.ProductTypeId);
         Console.WriteLine($"{i + 1}. {p.Name} ({type.Title}) - ${p.Price}");
     }
 }
@@ -99,9 +99,9 @@ void AddProduct(List<Product> products, List<ProductType> productTypes)
     decimal price = decimal.Parse(Console.ReadLine());
 
     Console.WriteLine("Choose a product type:");
-    foreach (ProductType pt in productTypes)
+    foreach (ProductType productType in productTypes)
     {
-        Console.WriteLine($"{pt.Id}. {pt.Title}");
+        Console.WriteLine($"{productType.Id}. {productType.Title}");
     }
     Console.Write("Enter the product type id: ");
     int typeId = int.Parse(Console.ReadLine());
@@ -139,9 +139,9 @@ void UpdateProduct(List<Product> products, List<ProductType> productTypes)
     }
 
     Console.WriteLine("Available product types:");
-    foreach (ProductType pt in productTypes)
+    foreach (ProductType productType in productTypes)
     {
-        Console.WriteLine($"{pt.Id}. {pt.Title}");
+        Console.WriteLine($"{productType.Id}. {productType.Title}");
     }
     Console.Write($"Enter a new product type id (press enter to keep {product.ProductTypeId}): ");
     string newTypeInput = Console.ReadLine();
